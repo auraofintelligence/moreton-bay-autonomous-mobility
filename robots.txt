@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/sitemap.xml
