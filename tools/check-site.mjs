@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, extname, join, normalize, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
+const publicBase = "https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/";
 const pages = readdirSync(root)
   .filter((name) => extname(name).toLowerCase() === ".html")
   .sort();
@@ -12,6 +13,7 @@ const expectedPages = [
   "index.html",
   "pilot-plan.html",
   "safety-and-trust.html",
+  "site-map.html",
   "take-part.html",
   "why-moreton-bay.html",
 ];
@@ -22,12 +24,22 @@ const expectedHeroes = new Map([
   ["how-it-works.html", "assets/images/heroes/how-it-works.webp"],
   ["everyday-journeys.html", "assets/images/heroes/everyday-journeys.webp"],
   ["safety-and-trust.html", "assets/images/heroes/safety-and-trust.webp"],
+  ["site-map.html", "assets/images/heroes/site-map.webp"],
   ["pilot-plan.html", "assets/images/heroes/pilot-plan.webp"],
   ["take-part.html", "assets/images/heroes/take-part.webp"],
 ]);
 const issues = [];
 const titles = new Map();
 const descriptions = new Map();
+const stylesheetVersions = new Set();
+
+const requiredProjectFiles = [
+  ".nojekyll",
+  "LICENCE.md",
+  "README.md",
+  "robots.txt",
+  "sitemap.xml",
+];
 
 function addIssue(page, message) {
   issues.push(`${page}: ${message}`);
@@ -63,6 +75,12 @@ function fragmentTarget(page, href) {
 for (const expected of expectedPages) {
   if (!pages.includes(expected)) addIssue("site", `missing expected page ${expected}`);
 }
+for (const page of pages) {
+  if (!expectedPages.includes(page)) addIssue("site", `unexpected HTML page ${page}`);
+}
+for (const requiredFile of requiredProjectFiles) {
+  if (!existsSync(join(root, requiredFile))) addIssue("site", `missing required project file ${requiredFile}`);
+}
 
 for (const page of pages) {
   const filePath = join(root, page);
@@ -70,12 +88,19 @@ for (const page of pages) {
   const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1].trim();
   const description = html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i)?.[1].trim()
     ?? html.match(/<meta\s+content=["']([^"']+)["']\s+name=["']description["']/i)?.[1].trim();
+  const expectedUrl = page === "index.html" ? publicBase : `${publicBase}${page}`;
+  const canonicalTag = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*>/i)?.[0];
+  const canonicalUrl = canonicalTag ? getAttribute(canonicalTag, "href") : null;
+  const ogUrlTag = html.match(/<meta\b[^>]*\bproperty=["']og:url["'][^>]*>/i)?.[0];
+  const ogUrl = ogUrlTag ? getAttribute(ogUrlTag, "content") : null;
 
   if (!/^<!doctype html>/i.test(html.trimStart())) addIssue(page, "missing HTML5 doctype");
   if (!/<html\b[^>]*\blang=["']en-AU["']/i.test(html)) addIssue(page, "html language must be en-AU");
   if (!/<meta\s+charset=["']?utf-8/i.test(html)) addIssue(page, "missing UTF-8 charset");
   if (!title) addIssue(page, "missing title");
   if (!description) addIssue(page, "missing meta description");
+  if (canonicalUrl !== expectedUrl) addIssue(page, `canonical URL must be ${expectedUrl}`);
+  if (ogUrl !== expectedUrl) addIssue(page, `Open Graph URL must be ${expectedUrl}`);
   if (title) {
     if (titles.has(title)) addIssue(page, `duplicates title from ${titles.get(title)}`);
     titles.set(title, page);
@@ -93,8 +118,21 @@ for (const page of pages) {
   if (!html.includes("AI-generated concept image. No local service or partnership is implied.")) {
     addIssue(page, "missing concept-image disclosure");
   }
+  const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  if (!footer.includes('href="site-map.html"')) addIssue(page, "footer must link to the visual site map");
+  if (!footer.includes("LICENCE.md")) addIssue(page, "footer must link to the licence");
+  if (!footer.includes("github.com/auraofintelligence/moreton-bay-autonomous-mobility")) {
+    addIssue(page, "footer must link to the public repository");
+  }
   const expectedHero = expectedHeroes.get(page);
   if (expectedHero && !html.includes(expectedHero)) addIssue(page, `missing unique hero ${expectedHero}`);
+
+  const ids = new Set();
+  for (const idMatch of html.matchAll(/\bid=["']([^"']+)["']/gi)) {
+    const id = idMatch[1];
+    if (ids.has(id)) addIssue(page, `duplicate id ${id}`);
+    ids.add(id);
+  }
 
   for (const imageTag of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = imageTag[0];
@@ -108,7 +146,14 @@ for (const page of pages) {
   }
 
   for (const anchorTag of html.matchAll(/<a\b[^>]*>/gi)) {
-    const href = getAttribute(anchorTag[0], "href");
+    const tag = anchorTag[0];
+    const href = getAttribute(tag, "href");
+    if (getAttribute(tag, "target") === "_blank") {
+      const rel = getAttribute(tag, "rel") ?? "";
+      if (!/\bnoopener\b/i.test(rel) || !/\bnoreferrer\b/i.test(rel)) {
+        addIssue(page, `target=_blank link needs rel=noopener noreferrer: ${href ?? "unknown target"}`);
+      }
+    }
     if (!href || /^(?:https?:|mailto:|tel:)/i.test(href)) continue;
     const target = localTarget(page, href);
     if (target && !existsSync(target)) {
@@ -132,9 +177,29 @@ for (const page of pages) {
     if (!path || /^(?:https?:|data:)/i.test(path)) continue;
     const target = localTarget(page, path);
     if (target && !existsSync(target)) addIssue(page, `missing asset ${path}`);
+    if (/^assets\/css\/styles\.css\?v=/i.test(path)) stylesheetVersions.add(path);
   }
 
   if (/C:\\Users\\|file:\/\/|localhost|127\.0\.0\.1/i.test(html)) addIssue(page, "contains a local path or preview URL");
+}
+
+if (stylesheetVersions.size !== 1) {
+  addIssue("site", `expected one shared stylesheet cache version, found ${stylesheetVersions.size}`);
+}
+
+const sitemapText = readFileSync(join(root, "sitemap.xml"), "utf8");
+const sitemapUrls = new Set([...sitemapText.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((match) => match[1].trim()));
+const expectedUrls = new Set(expectedPages.map((page) => page === "index.html" ? publicBase : `${publicBase}${page}`));
+for (const expectedUrl of expectedUrls) {
+  if (!sitemapUrls.has(expectedUrl)) addIssue("sitemap.xml", `missing ${expectedUrl}`);
+}
+for (const sitemapUrl of sitemapUrls) {
+  if (!expectedUrls.has(sitemapUrl)) addIssue("sitemap.xml", `unexpected URL ${sitemapUrl}`);
+}
+
+const robotsText = readFileSync(join(root, "robots.txt"), "utf8");
+if (!robotsText.includes(`Sitemap: ${publicBase}sitemap.xml`)) {
+  addIssue("robots.txt", "must point to the public XML sitemap");
 }
 
 if (issues.length) {

@@ -1866,6 +1866,10 @@ details > :not(summary) {
     object-position: 72% center;
   }
 
+  .hero--site-map .hero__media img {
+    object-position: 88% center;
+  }
+
   .hero__inner,
   .hero__content {
     padding-block: 5rem 6rem;
