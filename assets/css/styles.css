@@ -567,7 +567,6 @@ button {
   display: inline-flex;
   margin-block-end: 0.85rem;
   align-items: center;
-  gap: 0.55rem;
   color: var(--coral-600);
   font-size: var(--step--1);
   font-weight: 850;
@@ -579,15 +578,6 @@ button {
 .hero__eyebrow {
   color: var(--sand-200);
   text-shadow: 0 1px 0 rgb(0 0 0 / 30%);
-}
-
-.hero__eyebrow::before,
-.eyebrow::before {
-  width: 1.9rem;
-  height: 0.18rem;
-  border-radius: var(--radius-pill);
-  background: currentColor;
-  content: "";
 }
 
 .hero__title,
