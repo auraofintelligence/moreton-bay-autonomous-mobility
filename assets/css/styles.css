@@ -702,6 +702,29 @@ button {
   color: var(--white);
 }
 
+.opening-thesis {
+  border-block-end: 1px solid rgb(255 255 255 / 18%);
+}
+
+.opening-thesis__inner {
+  padding-block: clamp(2.75rem, 7vw, 5.5rem);
+}
+
+.opening-thesis h2 {
+  max-width: 18ch;
+  margin-block-end: 1.2rem;
+  color: var(--white);
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  line-height: 1.02;
+}
+
+.opening-thesis__text {
+  max-width: 66rem;
+  color: rgb(255 255 255 / 86%);
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 1.55;
+}
+
 .section--navy .eyebrow,
 .action-panel .eyebrow,
 .cta-panel .eyebrow {
