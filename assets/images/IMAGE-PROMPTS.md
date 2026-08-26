@@ -37,7 +37,7 @@ Create a photorealistic wide editorial scene on a Moreton Bay coastal suburban r
 
 ### `heroes/why-moreton-bay.webp`
 
-Create a believable Moreton Bay town-centre panorama linking an ordinary rail station, road, neighbourhoods, hills, mangroves and bay. Put one unbranded muted-gold Tesla Cybercab-style two-seat coupe in the lower-right: compact wedge/teardrop body, large black canopy, smooth nose, razor-thin light bar and aerodynamic disc wheels, with no roof lidar. Add one distant delivery aircraft. Keep the left half darker and uncluttered for copy. No driver, logos, American road markings or generic pod vehicle.
+Create a believable Bay Islands ferry-terminal panorama with a jetty, ferry, car park, gum trees, low coastal buildings and Moreton Bay. Put an unbranded muted-gold Tesla Cybercab-style two-seat coupe, a Waymo Jaguar I-PACE-style robotaxi and a Baidu Apollo RT6-style robotaxi in the lower-right. Keep the left half darker and uncluttered for copy. No driver, logos, American road markings or generic pod vehicle.
 
 ### `heroes/global-trajectory.webp`
 
@@ -57,7 +57,7 @@ Create a practical accessibility and emergency-readiness review led by a wheelch
 
 ### `heroes/pilot-plan.webp`
 
-Create a civic-documentary Moreton Bay transport interchange. Put an unmistakable unbranded warm-gold Cybercab-style coupe in the foreground with wedge body, uninterrupted black canopy, slim light bar, disc wheels and no mirrors. Place a secondary white Apollo RT6-style MPV with roof lidar at the charging bay. Include passenger rail, local technicians and a fixed-wing delivery aircraft. No company livery, government insignia or implied partnership.
+Create a civic-documentary Bay Islands ferry-terminal service hub. Put an unmistakable unbranded warm-gold Cybercab-style coupe in the foreground with wedge body, uninterrupted black canopy, slim light bar, disc wheels and no mirrors. Place a white Waymo Jaguar I-PACE-style robotaxi and a white Apollo RT6-style MPV with roof lidar at the charging bay. Include a ferry, local technicians and a fixed-wing delivery aircraft. No company livery, government insignia or implied partnership.
 
 ### `heroes/take-part.webp`
 
@@ -65,4 +65,4 @@ Create a candid community workshop around a large unlabelled regional map. Put d
 
 ### `heroes/site-map.webp`
 
-Create a high-oblique Moreton Bay overview joining town centres, passenger rail, coast and a community route-mapping table. Replace the original generic shuttle with a white Jaguar I-PACE-style Waymo robotaxi carrying a prominent roof lidar/sensor crown and side pods, followed by a gold Tesla Cybercab-style coupe with wedge profile, dark canopy and disc wheels. Keep the winged delivery drone, people, map, rail, landscape and left-side copy space unchanged. No logos, wordmarks, impossible routes or partnership implication.
+Create a high-oblique Moreton Bay overview joining islands, coast, ferry routes and a community route-mapping table. Show a white Jaguar I-PACE-style Waymo robotaxi carrying a prominent roof lidar/sensor crown and side pods, a gold Tesla Cybercab-style coupe with wedge profile, dark canopy and disc wheels, and a white Apollo RT6-style robotaxi. Keep the winged delivery drone, people, map, ferry terminal, landscape and left-side copy space. No logos, wordmarks, impossible routes or partnership implication.
