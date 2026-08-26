@@ -221,6 +221,10 @@ button {
   margin-block-start: var(--flow-space, 1.25rem);
 }
 
+.flow--tight {
+  --flow-space: 0.72rem;
+}
+
 .cluster {
   display: flex;
   flex-wrap: wrap;
@@ -362,6 +366,10 @@ button {
   align-items: center;
   gap: 0.15rem;
   list-style: none;
+}
+
+.site-nav__input {
+  display: none;
 }
 
 .site-nav li,
@@ -743,6 +751,132 @@ button {
 
 .surface--navy :where(h2, h3, h4) {
   color: var(--white);
+}
+
+/* Island spectrum */
+.island-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.island-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.island-card summary {
+  display: grid;
+  min-height: 7.5rem;
+  padding: 1.25rem 1.4rem;
+  align-content: center;
+  gap: 0.45rem;
+}
+
+.island-card summary h3 {
+  color: var(--navy-900);
+  font-size: var(--step-1);
+  line-height: 1.15;
+}
+
+.island-card summary span {
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.island-card[open] summary {
+  border-block-end: 1px solid var(--line);
+  background: var(--sea-50);
+}
+
+.island-card summary:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 0.2rem var(--focus);
+}
+
+.island-card > div {
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+
+/* Public input form */
+.input-layout {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.input-form {
+  display: none;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--sea-50);
+  gap: 1.25rem;
+}
+
+.js .input-form {
+  display: grid;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field label {
+  color: var(--navy-900);
+  font-weight: 800;
+}
+
+.field label span,
+.field__help {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--navy-950);
+}
+
+.field textarea {
+  min-height: 12rem;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--sea-600);
+  outline: 0.2rem solid rgb(0 137 134 / 20%);
+  outline-offset: 0;
+}
+
+.form-disclosure {
+  padding: 1rem;
+  border: 1px solid var(--sand-300);
+  border-radius: var(--radius-sm);
+  background: var(--sand-100);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.form-disclosure p + p {
+  margin-block-start: 0.7rem;
 }
 
 .rule-top {
@@ -1686,6 +1820,10 @@ details > :not(summary) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .diagram-grid,
   .phase-grid,
   .ninety-day-grid {
@@ -1763,6 +1901,15 @@ details > :not(summary) {
   .content-grid--wide {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
+
+  .input-layout {
+    grid-template-columns: minmax(0, 1.7fr) minmax(18rem, 0.7fr);
+  }
+
+  .input-aside {
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+  }
 }
 
 @media (max-width: 61.99rem) {
@@ -1779,6 +1926,52 @@ details > :not(summary) {
 
   .header-cta {
     display: none;
+  }
+
+  .site-header {
+    backdrop-filter: none;
+  }
+
+  .js .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+
+  .header-inner,
+  .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .site-nav__list,
+  .nav-list {
+    width: 100%;
+    padding-block: 0.25rem 0.85rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .site-nav a:not(.button),
+  .nav-list a:not(.button) {
+    width: 100%;
+    min-height: 2.9rem;
+    padding-inline: 0.8rem;
+    font-size: 0.94rem;
+  }
+
+  .site-nav__input {
+    display: list-item;
+  }
+
+  .js .site-nav {
+    display: none;
+  }
+
+  .js .site-header.nav-open .site-nav,
+  .js .site-header.is-nav-open .site-nav {
+    display: block;
   }
 }
 
@@ -1859,6 +2052,10 @@ details > :not(summary) {
 
   .hero--site-map .hero__media img {
     object-position: 88% center;
+  }
+
+  .hero--islands .hero__media img {
+    object-position: 78% center;
   }
 
   .hero__inner,

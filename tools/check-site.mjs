@@ -11,6 +11,7 @@ const expectedPages = [
   "global-trajectory.html",
   "how-it-works.html",
   "index.html",
+  "island-spectrum.html",
   "pilot-plan.html",
   "safety-and-trust.html",
   "site-map.html",
@@ -20,6 +21,7 @@ const expectedPages = [
 const expectedHeroes = new Map([
   ["index.html", "assets/images/heroes/home.webp"],
   ["why-moreton-bay.html", "assets/images/heroes/why-moreton-bay.webp"],
+  ["island-spectrum.html", "assets/images/heroes/island-spectrum.png"],
   ["global-trajectory.html", "assets/images/heroes/global-trajectory.webp"],
   ["how-it-works.html", "assets/images/heroes/how-it-works.webp"],
   ["everyday-journeys.html", "assets/images/heroes/everyday-journeys.webp"],
@@ -31,6 +33,7 @@ const expectedHeroes = new Map([
 const expectedSourceLinks = new Map([
   ["index.html", "site-map.html#sources-home"],
   ["why-moreton-bay.html", "site-map.html#sources-why"],
+  ["island-spectrum.html", "site-map.html#sources-islands"],
   ["global-trajectory.html", "site-map.html#sources-global"],
   ["how-it-works.html", "site-map.html#sources-network"],
   ["everyday-journeys.html", "site-map.html#sources-journeys"],
@@ -40,8 +43,9 @@ const expectedSourceLinks = new Map([
 ]);
 const expectedPageNavigation = new Map([
   ["index.html", ["why-moreton-bay.html"]],
-  ["why-moreton-bay.html", ["index.html", "global-trajectory.html"]],
-  ["global-trajectory.html", ["why-moreton-bay.html", "how-it-works.html"]],
+  ["why-moreton-bay.html", ["index.html", "island-spectrum.html"]],
+  ["island-spectrum.html", ["why-moreton-bay.html", "global-trajectory.html"]],
+  ["global-trajectory.html", ["island-spectrum.html", "how-it-works.html"]],
   ["how-it-works.html", ["global-trajectory.html", "everyday-journeys.html"]],
   ["everyday-journeys.html", ["how-it-works.html", "safety-and-trust.html"]],
   ["safety-and-trust.html", ["everyday-journeys.html", "pilot-plan.html"]],
@@ -50,6 +54,16 @@ const expectedPageNavigation = new Map([
   ["site-map.html", ["take-part.html", "index.html"]],
 ]);
 const compactDisclaimer = "Independent public proposal.";
+const expectedHeaderLinks = [
+  "why-moreton-bay.html",
+  "island-spectrum.html",
+  "global-trajectory.html",
+  "how-it-works.html",
+  "everyday-journeys.html",
+  "safety-and-trust.html",
+  "pilot-plan.html",
+  "take-part.html",
+];
 const issues = [];
 const titles = new Map();
 const descriptions = new Map();
@@ -60,9 +74,13 @@ const requiredProjectFiles = [
   ".nojekyll",
   "LICENCE.md",
   "README.md",
+  "research/island-spectrum-notes.md",
   "robots.txt",
   "sitemap.xml",
 ];
+
+const siteScriptText = readFileSync(join(root, "assets/js/site.js"), "utf8");
+const siteStylesText = readFileSync(join(root, "assets/css/styles.css"), "utf8");
 
 function addIssue(page, message) {
   issues.push(`${page}: ${message}`);
@@ -217,6 +235,50 @@ for (const page of pages) {
   const expectedSourceLink = expectedSourceLinks.get(page);
   if (expectedSourceLink && !hasLink(html, expectedSourceLink)) {
     addIssue(page, `missing page-specific source link ${expectedSourceLink}`);
+  }
+
+  const sharedHeader = html.match(/<header\b[^>]*\bclass=["'][^"']*\bsite-header\b[^"']*["'][^>]*>[\s\S]*?<\/header>/i)?.[0] ?? "";
+  for (const expectedLink of expectedHeaderLinks) {
+    if (!hasLink(sharedHeader, expectedLink)) {
+      addIssue(page, `shared header is missing ${expectedLink}`);
+    }
+  }
+  if (!/<a\b[^>]*\bclass=["'][^"']*\bheader-cta\b[^"']*["'][^>]*\bhref=["']take-part\.html["']/i.test(sharedHeader)) {
+    addIssue(page, "header call to action must link to the input form");
+  }
+
+  if (page === "take-part.html") {
+    const form = html.match(/<form\b[^>]*\bclass=["'][^"']*\binput-form\b[^"']*["'][^>]*>[\s\S]*?<\/form>/i)?.[0] ?? "";
+    if (!form) addIssue(page, "missing public input form");
+    if (!/\bdata-input-form\b/i.test(form)) addIssue(page, "input form is missing its browser draft hook");
+    for (const fieldName of ["topic", "message", "name", "reply_email"]) {
+      if (!new RegExp(`\\bname=["']${fieldName}["']`, "i").test(form)) addIssue(page, `input form is missing field ${fieldName}`);
+    }
+    for (const fieldId of ["topic", "message", "name", "reply-to"]) {
+      if (!new RegExp(`<label\\b[^>]*\\bfor=["']${fieldId}["']`, "i").test(form)) addIssue(page, `input form is missing a label for ${fieldId}`);
+    }
+    for (const hook of ["data-private-email", "data-public-issue", "data-copy-draft", "data-copy-output", "data-form-status"]) {
+      if (!new RegExp(`\\b${hook}\\b`, "i").test(form)) addIssue(page, `input form is missing ${hook}`);
+    }
+    if (/<button\b[^>]*\btype=["']submit["']/i.test(form)) addIssue(page, "input form must not fall back to a GET submission when JavaScript is unavailable");
+    if (!/\bmaxlength=["']1800["']/i.test(form)) addIssue(page, "input form needs the URL-safe message length limit");
+    if (!/Nothing leaves this page while you type/i.test(form) || !/sends the topic and message to GitHub/i.test(form) || !/not published until you post it/i.test(form)) {
+      addIssue(page, "input form needs accurate email and GitHub draft wording");
+    }
+    if (!/public draft does not copy your optional name or reply email/i.test(form)) addIssue(page, "input form must explain that optional contact details stay out of the public draft");
+    if (!/Do not include passwords/i.test(form)) addIssue(page, "input form needs a sensitive-information warning");
+    if (!siteScriptText.includes("[data-input-form]")) addIssue(page, "site script is missing the input form draft builder");
+    if (!siteScriptText.includes('inputForm.addEventListener("submit"') || !siteScriptText.includes("event.preventDefault()")) addIssue(page, "site script must block accidental form submission");
+    if (!siteScriptText.includes('privateEmail = "sbt4183@gmail.com"')) addIssue(page, "site script is missing the private email draft destination");
+    if (!siteScriptText.includes("/issues/new")) addIssue(page, "site script is missing the public issue draft destination");
+    if (!siteScriptText.includes("navigator.clipboard.writeText") || !siteScriptText.includes("data-copy-output")) addIssue(page, "site script is missing the copyable email fallback");
+    if (!/\.input-form\s*\{[^}]*display:\s*none;/s.test(siteStylesText) || !/\.js \.input-form\s*\{[^}]*display:\s*grid;/s.test(siteStylesText)) {
+      addIssue(page, "input form must stay hidden when JavaScript is unavailable");
+    }
+    const publicBodyBlock = siteScriptText.match(/var publicBody = \[[\s\S]*?\]\.join\("\\n"\);/)?.[0] ?? "";
+    if (!publicBodyBlock) addIssue(page, "site script is missing a separate public issue body");
+    if (/\bname\b|replyEmail/.test(publicBodyBlock)) addIssue(page, "public issue body must exclude the optional name and reply email");
+    if (!/var issueBody = draft\.publicBody/.test(siteScriptText)) addIssue(page, "public issue draft must use only the separated public body");
   }
 
   const pageNav = html.match(/<nav\b[^>]*\bclass=["'][^"']*\bpage-nav\b[^"']*["'][^>]*>[\s\S]*?<\/nav>/i)?.[0] ?? "";

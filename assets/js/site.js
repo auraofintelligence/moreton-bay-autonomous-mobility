@@ -7,7 +7,7 @@
   var header = document.querySelector("[data-site-header], .site-header");
   var menuButton = document.querySelector("[data-nav-toggle], [data-menu-button], .nav-toggle");
   var navigation = document.querySelector("[data-site-nav], .site-nav");
-  var desktopQuery = window.matchMedia("(min-width: 48rem)");
+  var desktopQuery = window.matchMedia("(min-width: 62rem)");
 
   function setMenuState(isOpen, returnFocus) {
     if (!header || !menuButton || !navigation) {
@@ -118,5 +118,111 @@
       }
     }, { passive: true });
     window.addEventListener("pageshow", updateBackToTop);
+  }
+
+  var inputForm = document.querySelector("[data-input-form]");
+  if (inputForm) {
+    var privateEmailButton = inputForm.querySelector("[data-private-email]");
+    var publicIssueButton = inputForm.querySelector("[data-public-issue]");
+    var copyDraftButton = inputForm.querySelector("[data-copy-draft]");
+    var copyArea = inputForm.querySelector("[data-copy-area]");
+    var copyOutput = inputForm.querySelector("[data-copy-output]");
+    var formStatus = inputForm.querySelector("[data-form-status]");
+    var privateEmail = "sbt4183@gmail.com";
+    var newIssueUrl = "https://github.com/auraofintelligence/moreton-bay-autonomous-mobility/issues/new";
+
+    function prepareInputDraft() {
+      var data = new FormData(inputForm);
+      var topic = String(data.get("topic") || "").trim();
+      var message = String(data.get("message") || "").trim();
+      var name = String(data.get("name") || "").trim();
+      var replyEmail = String(data.get("reply_email") || "").trim();
+      var selectedTopic = inputForm.querySelector("#topic option:checked");
+      var topicLabel = selectedTopic ? selectedTopic.textContent.trim() : topic;
+      var privateBody = [
+        "Topic: " + topicLabel,
+        "Name: " + (name || "Not supplied"),
+        "Reply email: " + (replyEmail || "Not supplied"),
+        "",
+        message
+      ].join("\n");
+      var publicBody = [
+        "Topic: " + topicLabel,
+        "",
+        message
+      ].join("\n");
+
+      return { topic: topic, privateBody: privateBody, publicBody: publicBody };
+    }
+
+    function setFormStatus(message) {
+      if (formStatus) {
+        formStatus.textContent = message;
+      }
+    }
+
+    inputForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
+
+    if (privateEmailButton) {
+      privateEmailButton.addEventListener("click", function () {
+        if (!inputForm.reportValidity()) {
+          return;
+        }
+
+        var draft = prepareInputDraft();
+        setFormStatus("Your device was asked to open its email app. If nothing happened, copy the draft or use the email address below.");
+        window.location.href = "mailto:" + privateEmail
+          + "?subject=" + encodeURIComponent(draft.topic)
+          + "&body=" + encodeURIComponent(draft.privateBody);
+      });
+    }
+
+    if (publicIssueButton) {
+      publicIssueButton.addEventListener("click", function () {
+        if (!inputForm.reportValidity()) {
+          return;
+        }
+
+        var draft = prepareInputDraft();
+        var issueBody = draft.publicBody
+          + "\n\nPrepared through the Moreton Bay Autonomous Mobility input form.";
+        var issueWindow = window.open(
+          newIssueUrl
+            + "?title=" + encodeURIComponent(draft.topic)
+            + "&body=" + encodeURIComponent(issueBody),
+          "_blank",
+          "noopener,noreferrer"
+        );
+        setFormStatus(issueWindow
+          ? "GitHub opened with an unpublished issue draft. Review it before posting."
+          : "The GitHub window was blocked. Allow pop-ups or copy the draft instead.");
+      });
+    }
+
+    if (copyDraftButton && copyArea && copyOutput) {
+      copyDraftButton.addEventListener("click", function () {
+        if (!inputForm.reportValidity()) {
+          return;
+        }
+
+        var draft = prepareInputDraft();
+        copyOutput.value = draft.privateBody;
+        copyArea.hidden = false;
+        copyOutput.focus();
+        copyOutput.select();
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(draft.privateBody).then(function () {
+            setFormStatus("The email draft was copied. It is also shown and selected below.");
+          }).catch(function () {
+            setFormStatus("The email draft is shown and selected below. Copy it from there.");
+          });
+        } else {
+          setFormStatus("The email draft is shown and selected below. Copy it from there.");
+        }
+      });
+    }
   }
 })();

@@ -2,7 +2,7 @@
 
 Research and generation date: **26 August 2026**.
 
-All images were made with OpenAI's built-in raster image generator, then resized and compressed locally for this website. Every hero is a 2400 × 1140 RGB WebP. The logo is a 640 × 640 transparent RGBA PNG, with raster PNG favicon crops at 32, 48 and 180 pixels. There are no SVG image assets.
+All images were made with OpenAI's built-in raster image generator. The established heroes are 2400 × 1140 RGB WebP files. The island-spectrum hero is the original 1820 × 864 PNG generation. The logo is a 640 × 640 transparent RGBA PNG, with raster PNG favicon crops at 32, 48 and 180 pixels. There are no SVG image assets.
 
 These are AI-generated concept images, not photographs of an operating Moreton Bay service. Recognisable unbranded vehicle forms are used so the site depicts the actual autonomous-mobility field rather than imaginary generic pods. No logo, livery, government approval, company involvement or partnership is implied.
 
@@ -66,3 +66,7 @@ Create a candid community workshop around a large unlabelled regional map. Put d
 ### `heroes/site-map.webp`
 
 Create a high-oblique Moreton Bay overview joining islands, coast, ferry routes and a community route-mapping table. Show a white Jaguar I-PACE-style Waymo robotaxi carrying a prominent roof lidar/sensor crown and side pods, a gold Tesla Cybercab-style coupe with wedge profile, dark canopy and disc wheels, and a white Apollo RT6-style robotaxi. Keep the winged delivery drone, people, map, ferry terminal, landscape and left-side copy space. No logos, wordmarks, impossible routes or partnership implication.
+
+### `heroes/island-spectrum.png`
+
+Create a photorealistic ultra-wide Moreton Bay island ferry-terminal panorama. Look across calm water towards a chain of low green islands, with a working passenger ferry arriving and another ferry further across the bay. Show exactly three autonomous passenger vehicles in the forecourt: one bronze-gold Tesla Cybercab form, one white Waymo Jaguar I-PACE form with roof lidar and side sensors, and one white and blue Baidu Apollo RT6 form with its roof sensor package. Show exactly one compact fixed-wing delivery aircraft over the water. Use Australian left-side road logic. Put detail in the centre and right, and reserve the left 42 per cent as dark, quiet water and sky for white copy. Show only ferry infrastructure, with no bridge, city skyline, extra vehicle, generic pod, quadcopter, words, logo or watermark.

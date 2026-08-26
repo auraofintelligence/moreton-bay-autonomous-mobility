@@ -58,12 +58,13 @@ Company statements are labelled as company-reported evidence. Safety comparisons
 |---|---|
 | [Project overview](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/) | Asks the timing question and gives three useful starting points. |
 | [Why Moreton Bay?](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/why-moreton-bay.html) | Shows the ferry-access problem, roughly 300 to 400 parked vehicles at Dunwich and the wider lesson. |
+| [Island transport spectrum](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/island-spectrum.html) | Restores the current connections, local transport, fuel picture and road-data gaps across seven island settings, with Bribie as the bridge-connected comparison. |
 | [Global trajectory](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/global-trajectory.html) | Compares current Waymo, Tesla, Chinese and other company status, safety evidence and fleet-scale approvals. |
 | [How the network works](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/how-it-works.html) | Explains passenger rides, mainland-to-island supply flights and their shared support. |
 | [Everyday journeys](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/everyday-journeys.html) | Shows four useful island journeys. |
 | [Safety and trust](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html) | Shows the strongest current public safety comparison and its limits. |
 | [Action plan](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/pilot-plan.html) | Gives four phases and the first 90 days. |
-| [Take part](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html) | Shows roles, responsibilities and ways to help or correct the work. |
+| [Add local input](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html) | Prepares a non-public email draft or public GitHub issue from island knowledge, corrections and useful sources. |
 | [Site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) | Lists every short page and holds the complete dated source library. |
 
 The repository also provides a machine-readable [`sitemap.xml`](sitemap.xml) for search engines.
@@ -116,15 +117,18 @@ These links and public pages were checked on 26 August 2026. Their status can ch
 .
 ├── index.html                 Project overview
 ├── why-moreton-bay.html       Regional case
+├── island-spectrum.html       Current island-by-island transport spectrum
 ├── global-trajectory.html     Current international evidence
 ├── how-it-works.html          Network design
 ├── everyday-journeys.html     Four practical journey cases
 ├── safety-and-trust.html      Current safety evidence
 ├── pilot-plan.html            Action plan; filename retained for stable links
-├── take-part.html             Roles, responsibilities and ways to help
+├── take-part.html             Private email and public issue draft form
 ├── site-map.html              Site map and dated source library
 ├── sitemap.xml                Search-engine sitemap
 ├── LICENCE.md                 Strange But True Public Source Licence
+├── research/
+│   └── island-spectrum-notes.md  Research register and verification state
 ├── assets/
 │   ├── css/styles.css         Shared visual system and responsive layout
 │   ├── js/site.js             Menu and progressive-enhancement behaviour
@@ -183,7 +187,9 @@ No SVG logo or favicon is used.
 
 ## Corrections and contributions
 
-Source corrections and clearly scoped improvements can be proposed through the repository’s [public issues](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility/issues).
+Practical local knowledge and corrections can be prepared through the [input form](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html). The form keeps typed details in the browser. It can ask the visitor's email app to open a non-public draft, show a copyable fallback, or send the topic and message to GitHub to prepare a public issue draft. The public draft does not include the optional name or reply email. Nothing is published until the visitor posts it. The site does not store the input.
+
+Source corrections and clearly scoped improvements can also be proposed through the repository's [public issues](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility/issues).
 
 Do not post personal information, confidential material, culturally restricted information, security-sensitive operating details or claims of authority that have not been confirmed. A GitHub contribution is part of the public working record; it is not a permit application, procurement submission, community mandate or government consultation response.
 
