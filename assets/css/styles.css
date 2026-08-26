@@ -1770,7 +1770,7 @@ details > :not(summary) {
   }
 
   .content-grid--wide {
-    grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 

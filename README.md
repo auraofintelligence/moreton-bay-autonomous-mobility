@@ -182,7 +182,7 @@ Do not describe a change as published merely because it exists locally or on `ma
 
 ## Images and provenance
 
-The logo, favicons and full-width hero images are original raster concept artwork made with the built-in OpenAI image-generation tool. The vehicle scenes use recognisable current robotaxi design forms—including sensor-equipped Waymo-style vehicles, Tesla Cybercab and relevant Chinese robotaxi forms—without logos, wordmarks or claims of supplier participation.
+The logo, favicons and full-width hero images are original raster concept artwork made with the built-in OpenAI image-generation tool. The vehicle scenes use recognisable current robotaxi design forms, including sensor-equipped Waymo-style vehicles, Tesla Cybercab and relevant Chinese robotaxi forms, without logos, wordmarks or claims of supplier participation.
 
 They remain concept images, not photographs of an operating Moreton Bay service. Every page carrying a hero repeats that disclosure. The generation and replacement record is in [`assets/images/IMAGE-PROMPTS.md`](assets/images/IMAGE-PROMPTS.md).
 

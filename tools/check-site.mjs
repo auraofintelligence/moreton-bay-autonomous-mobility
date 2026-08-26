@@ -118,6 +118,9 @@ for (const page of pages) {
   if (!html.includes("AI-generated concept image. No local service or partnership is implied.")) {
     addIssue(page, "missing concept-image disclosure");
   }
+  if (/[\u2010\u2011\u2012\u2013\u2014\u2015]/u.test(html)) {
+    addIssue(page, "contains a Unicode dash; use an ASCII hyphen or normal punctuation");
+  }
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
   if (!footer.includes('href="site-map.html"')) addIssue(page, "footer must link to the visual site map");
   if (!footer.includes("LICENCE.md")) addIssue(page, "footer must link to the licence");
