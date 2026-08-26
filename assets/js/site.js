@@ -68,6 +68,37 @@
     element.textContent = String(new Date().getFullYear());
   });
 
+  function openLinkedDetails() {
+    if (!window.location.hash) {
+      return;
+    }
+
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (!target) {
+      return;
+    }
+
+    var details = target.closest("details");
+    var sibling = target;
+    while (!details && sibling) {
+      sibling = sibling.nextElementSibling;
+      if (sibling && sibling.tagName === "DETAILS") {
+        details = sibling;
+      }
+    }
+
+    if (details) {
+      details.open = true;
+      window.requestAnimationFrame(function () {
+        target.scrollIntoView({ block: "start" });
+        window.scrollBy(0, -((header && header.offsetHeight) || 0) - 16);
+      });
+    }
+  }
+
+  openLinkedDetails();
+  window.addEventListener("hashchange", openLinkedDetails);
+
   var backToTop = document.querySelector("[data-back-to-top], .back-to-top");
   var scrollQueued = false;
 

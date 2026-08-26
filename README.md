@@ -2,13 +2,13 @@
 
 **Public website:** [auraofintelligence.github.io/moreton-bay-autonomous-mobility](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/)
 
-[Open the visual site map](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) · [View the public repository](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility)
+[Open the site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) · [View the public repository](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility)
 
 > This is an independent public-interest proposal. It is not an operating service or an announced government program.
 
 ## What this project is
 
-Moreton Bay Autonomous Mobility is a highly visual public guide and action plan for building a people-led, region-wide autonomous passenger and delivery network across Moreton Bay.
+Moreton Bay Autonomous Mobility is a highly visual public guide and action plan for upgrading passenger and delivery services across Moreton Bay, with existing operators included in ownership, work and profit.
 
 The service target is useful **24/7/365 coverage** wherever needs, operating conditions and approvals support it. The plan is deliberately larger than one token route or technology demonstration. It develops multiple corridors and use cases as one coordinated regional portfolio.
 
@@ -38,9 +38,9 @@ The project therefore concentrates on assets the region can keep improving:
 
 The site does not claim a confirmed route, operator, partner, vehicle supplier, budget, permit, land right, cultural authority or government program.
 
-Items that still need evidence or a lawful decision are labelled **TO BE CONFIRMED**. Named agencies and officeholders are shown because they control particular legal or administrative doors, not because they own or endorse the vision.
+Named agencies and officeholders are shown because they handle particular legal decisions, not because they own or endorse the vision.
 
-People set the direction. Councils, regulators, departments, ministers and parliaments provide the lawful pathways for roads, land, procurement, permits, operating conditions and legislative change. No single office can approve the entire network.
+Self-sovereign people decide what they support, use, fund and build. Councils, regulators, departments, ministers and parliaments handle different legal decisions about roads, land, procurement, permits, operating conditions and legislative change. No single office controls the whole proposal.
 
 ## Research and evidence discipline
 
@@ -48,12 +48,7 @@ The current research cut-off is **26 August 2026**.
 
 Current-status claims were checked live against dated primary sources. Remembered claims and undated summaries are not treated as evidence. An official publisher establishes provenance, not freshness: current law, dated decisions and orders, live registers, regulatory filings and current service-status pages take priority over older explanatory pages.
 
-The site keeps four states visibly separate:
-
-- **Verified:** directly supported by the linked evidence within its stated scope.
-- **Proposed:** part of this public plan, not an approved service.
-- **Future:** a direction or capability that is not operating locally now.
-- **TO BE CONFIRMED:** a material fact, permission, route, partner, cost or decision that remains open.
+The site separates current evidence, this proposal and facts that still need checking. Detailed sources sit in one dated library instead of being repeated across every page.
 
 Company statements are labelled as company-reported evidence. Safety comparisons preserve the vehicle mode, operating area, distance, outcome and human benchmark rather than flattening unlike systems into one league table.
 
@@ -61,15 +56,15 @@ Company statements are labelled as company-reported evidence. Safety comparisons
 
 | Page | What it does |
 |---|---|
-| [Project overview](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/) | Makes the trajectory, timing and compounding case in one view. |
-| [Why Moreton Bay?](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/why-moreton-bay.html) | Sets out the regional geography, service case and local value. |
+| [Project overview](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/) | Asks the timing question and gives three useful starting points. |
+| [Why Moreton Bay?](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/why-moreton-bay.html) | Shows the ferry-access problem, roughly 300 to 400 parked vehicles at Dunwich and the wider lesson. |
 | [Global trajectory](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/global-trajectory.html) | Compares current Waymo, Tesla, Chinese and other company status, safety evidence and fleet-scale approvals. |
-| [How the network works](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/how-it-works.html) | Connects the road and drone workstreams with hubs, support, maintenance and recovery. |
-| [Everyday journeys](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/everyday-journeys.html) | Organises passenger and delivery uses into a regional rollout portfolio. |
-| [Safety and trust](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html) | Separates strong current evidence from local requirements and non-negotiable safeguards. |
-| [Action plan](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/pilot-plan.html) | Provides delivery gates, application-ready profiles and the compounding implementation loop. |
-| [Take part](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html) | Maps useful roles, evidence gaps, actual decision-making power and correct action paths. |
-| [Visual site map](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) | Shows the complete reading path, shortcuts and public project record. |
+| [How the network works](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/how-it-works.html) | Explains passenger rides, lightweight deliveries and their shared support. |
+| [Everyday journeys](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/everyday-journeys.html) | Shows four practical journey cases. |
+| [Safety and trust](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html) | Shows current safety evidence, its limits, local concerns and the failure response. |
+| [Action plan](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/pilot-plan.html) | Gives four phases, the first 90 days and the stop, adapt or scale decision. |
+| [Take part](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html) | Shows roles, responsibilities and ways to help or correct the work. |
+| [Site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) | Lists every short page and holds the complete dated source library. |
 
 The repository also provides a machine-readable [`sitemap.xml`](sitemap.xml) for search engines.
 
@@ -125,11 +120,11 @@ These links and public pages were checked on 26 August 2026. Their status can ch
 ├── why-moreton-bay.html       Regional case
 ├── global-trajectory.html     Current international evidence
 ├── how-it-works.html          Network design
-├── everyday-journeys.html     Service portfolio
+├── everyday-journeys.html     Four practical journey cases
 ├── safety-and-trust.html      Evidence and safeguards
 ├── pilot-plan.html            Action plan; filename retained for stable links
-├── take-part.html             Participation and power map
-├── site-map.html              Human-facing visual site map
+├── take-part.html             Roles, responsibilities and ways to help
+├── site-map.html              Site map and dated source library
 ├── sitemap.xml                Search-engine sitemap
 ├── LICENCE.md                 Strange But True Public Source Licence
 ├── assets/

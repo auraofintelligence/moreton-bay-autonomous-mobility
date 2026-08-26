@@ -28,10 +28,22 @@ const expectedHeroes = new Map([
   ["pilot-plan.html", "assets/images/heroes/pilot-plan.webp"],
   ["take-part.html", "assets/images/heroes/take-part.webp"],
 ]);
+const expectedSourceLinks = new Map([
+  ["index.html", "site-map.html#sources-home"],
+  ["why-moreton-bay.html", "site-map.html#sources-why"],
+  ["global-trajectory.html", "site-map.html#sources-global"],
+  ["how-it-works.html", "site-map.html#sources-network"],
+  ["everyday-journeys.html", "site-map.html#sources-journeys"],
+  ["safety-and-trust.html", "site-map.html#sources-safety"],
+  ["pilot-plan.html", "site-map.html#sources-action"],
+  ["take-part.html", "site-map.html#sources-take-part"],
+]);
+const compactDisclaimer = "Independent public proposal.";
 const issues = [];
 const titles = new Map();
 const descriptions = new Map();
 const stylesheetVersions = new Set();
+const mainWordCounts = new Map();
 
 const requiredProjectFiles = [
   ".nojekyll",
@@ -52,6 +64,22 @@ function countMatches(text, expression) {
 function getAttribute(tag, name) {
   const match = tag.match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, "i"));
   return match?.[2] ?? null;
+}
+
+function hasLink(html, href) {
+  return [...html.matchAll(/<a\b[^>]*>/gi)]
+    .some((match) => getAttribute(match[0], "href") === href);
+}
+
+function visibleMainWordCount(html) {
+  const main = html.match(/<main\b[^>]*>[\s\S]*?<\/main>/i)?.[0] ?? "";
+  const visibleText = main
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<(script|style|template)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<([a-z][\w:-]*)\b[^>]*class=["'][^"']*\bvisually-hidden\b[^"']*["'][^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:#\d+|#x[\da-f]+|[a-z][a-z\d]+);/gi, " ");
+  return [...visibleText.matchAll(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)].length;
 }
 
 function localTarget(page, href) {
@@ -80,6 +108,15 @@ for (const page of pages) {
 }
 for (const requiredFile of requiredProjectFiles) {
   if (!existsSync(join(root, requiredFile))) addIssue("site", `missing required project file ${requiredFile}`);
+}
+
+const heroOwners = new Map();
+for (const [page, hero] of expectedHeroes) {
+  if (heroOwners.has(hero)) {
+    addIssue("site", `${page} duplicates hero assignment from ${heroOwners.get(hero)}: ${hero}`);
+  } else {
+    heroOwners.set(hero, page);
+  }
 }
 
 for (const page of pages) {
@@ -112,17 +149,38 @@ for (const page of pages) {
   if (countMatches(html, /<h1\b/gi) !== 1) addIssue(page, "must contain exactly one h1");
   if (!/<a\b[^>]*class=["'][^"']*skip-link/i.test(html)) addIssue(page, "missing skip link");
   if (!/<main\b[^>]*id=["']main-content["']/i.test(html)) addIssue(page, "main needs id=main-content");
-  if (!html.includes("This is an independent public-interest proposal. It is not an operating service or an announced government program.")) {
-    addIssue(page, "missing the exact proposal disclaimer");
-  }
-  if (!html.includes("AI-generated concept image. No local service or partnership is implied.")) {
+  if (!html.includes("AI-generated concept image.")) {
     addIssue(page, "missing concept-image disclosure");
   }
   if (/[\u2010\u2011\u2012\u2013\u2014\u2015]/u.test(html)) {
     addIssue(page, "contains a Unicode dash; use an ASCII hyphen or normal punctuation");
   }
+  if (/\b(?:train|rail)\b/i.test(html)) {
+    addIssue(page, "contains train or rail wording; the Bay Islands use ferry connections");
+  }
+  if (/status-strip/i.test(html)) addIssue(page, "contains forbidden status-strip markup");
+  if (/hero__eyebrow/i.test(html)) addIssue(page, "contains forbidden hero__eyebrow markup");
+  if (/<[^>]*\bclass=["'][^"']*\beyebrow\b[^"']*["'][^>]*>/i.test(html)) {
+    addIssue(page, "contains forbidden eyebrow class markup");
+  }
+  if (page !== "site-map.html" && /\bsource-list\b/i.test(html)) {
+    addIssue(page, "contains a source list outside the central site map source library");
+  }
+
+  const wordCount = visibleMainWordCount(html);
+  mainWordCounts.set(page, wordCount);
+  if (page !== "site-map.html" && wordCount > 1000) {
+    addIssue(page, `main content is ${wordCount} words; TLDR content pages must stay at or below 1000`);
+  }
+
+  const expectedSourceLink = expectedSourceLinks.get(page);
+  if (expectedSourceLink && !hasLink(html, expectedSourceLink)) {
+    addIssue(page, `missing page-specific source link ${expectedSourceLink}`);
+  }
+
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
-  if (!footer.includes('href="site-map.html"')) addIssue(page, "footer must link to the visual site map");
+  if (!footer.includes(compactDisclaimer)) addIssue(page, "footer is missing the compact proposal disclaimer");
+  if (!hasLink(footer, "site-map.html#sources")) addIssue(page, "footer must link to site-map.html#sources");
   if (!footer.includes("LICENCE.md")) addIssue(page, "footer must link to the licence");
   if (!footer.includes("github.com/auraofintelligence/moreton-bay-autonomous-mobility")) {
     addIssue(page, "footer must link to the public repository");
@@ -135,6 +193,9 @@ for (const page of pages) {
     const id = idMatch[1];
     if (ids.has(id)) addIssue(page, `duplicate id ${id}`);
     ids.add(id);
+  }
+  if (page === "site-map.html" && !ids.has("sources")) {
+    addIssue(page, "missing central source library id=sources");
   }
 
   for (const imageTag of html.matchAll(/<img\b[^>]*>/gi)) {
@@ -204,6 +265,10 @@ const robotsText = readFileSync(join(root, "robots.txt"), "utf8");
 if (!robotsText.includes(`Sitemap: ${publicBase}sitemap.xml`)) {
   addIssue("robots.txt", "must point to the public XML sitemap");
 }
+
+console.log(`Main content word counts: ${[...mainWordCounts.entries()]
+  .map(([page, count]) => `${page}=${count}`)
+  .join(", ")}`);
 
 if (issues.length) {
   console.error(`Site check failed with ${issues.length} issue${issues.length === 1 ? "" : "s"}:`);

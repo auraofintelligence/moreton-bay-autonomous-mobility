@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Safety &amp; trust | Moreton Bay Autonomous Mobility</title>
-  <meta name="description" content="Safeguards, approval pathways, open questions and independent evidence for a proposed region-wide autonomous mobility program in Moreton Bay.">
+  <meta name="description" content="What current driverless safety data shows, what it does not prove and how a Moreton Bay service should respond when something goes wrong.">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#041f2b">
   <link rel="canonical" href="https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html">
@@ -12,7 +12,7 @@
   <meta property="og:locale" content="en_AU">
   <meta property="og:site_name" content="Moreton Bay Autonomous Mobility">
   <meta property="og:title" content="Safety &amp; trust | Moreton Bay Autonomous Mobility">
-  <meta property="og:description" content="How an ambitious regional road and air mobility program could overcomply, earn approvals and build public trust.">
+  <meta property="og:description" content="Safer does not mean flawless. See the current evidence, local concerns and failure response.">
   <meta property="og:url" content="https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html">
   <meta property="og:image" content="https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/assets/images/heroes/safety-and-trust.webp?v=20260826d">
   <meta property="og:image:width" content="2400">
@@ -20,13 +20,13 @@
   <meta property="og:image:alt" content="Concept image of a wheelchair user directing an accessibility and safety review around an unbranded Waymo Ojai-style robotaxi">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Safety &amp; trust | Moreton Bay Autonomous Mobility">
-  <meta name="twitter:description" content="How an ambitious regional road and air mobility program could overcomply, earn approvals and build public trust.">
+  <meta name="twitter:description" content="See the current driverless safety evidence and what should happen when something fails.">
   <meta name="twitter:image" content="https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/assets/images/heroes/safety-and-trust.webp?v=20260826d">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/favicon-32.png?v=20260826d">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/images/brand/favicon-48.png?v=20260826d">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brand/apple-touch-icon.png?v=20260826d">
   <link rel="stylesheet" href="assets/css/styles.css?v=20260826i">
-  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/site.js?v=20260826tldr" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -52,413 +52,73 @@
           <li><a href="take-part.html">Take part</a></li>
         </ul>
       </nav>
-      <a class="button button--small header-cta" href="pilot-plan.html#action-gates">Open action plan</a>
+      <a class="button button--small header-cta" href="pilot-plan.html#phases">Open action plan</a>
     </div>
   </header>
 
+
+
+
   <main id="main-content">
+
     <section class="hero" aria-labelledby="page-title">
       <picture class="hero__media">
-        <img src="assets/images/heroes/safety-and-trust.webp?v=20260826d" alt="A wheelchair user directs an accessibility and emergency-readiness review beside an unbranded Waymo Ojai-style robotaxi in coastal Moreton Bay" width="2400" height="1140" fetchpriority="high">
+        <img src="assets/images/heroes/safety-and-trust.webp?v=20260826d" width="2400" height="1140" alt="A wheelchair user and workers reviewing an autonomous passenger vehicle and delivery operation" fetchpriority="high">
       </picture>
-      <div class="hero__inner">
+      <div class="hero__content">
         <div class="hero__body">
-          <ol class="breadcrumbs" aria-label="Breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li aria-current="page">Safety &amp; trust</li>
-          </ol>
-          <p class="hero__eyebrow">Safer, not flawless</p>
-          <h1 id="page-title" class="hero__title">Use the evidence. Overcomply for the place.</h1>
-          <p class="hero__lede">Waymo’s published rider-only data now show materially lower crash and injury rates per distance than matched human-driving benchmarks inside its operating areas. That changes the starting point. Moreton Bay still needs exact implementation profiles, separate road and air approvals, accessible design and emergency readiness.</p>
-          <div class="hero__actions">
-            <a class="button button--light" href="#current-evidence">See the current evidence</a>
-            <a class="button button--outline" href="#non-negotiables">See the non-negotiables</a>
-          </div>
+          <ol class="breadcrumbs" aria-label="Breadcrumb"><li><a href="index.html">Home</a></li><li aria-current="page">Safety</li></ol>
+          <h1 id="page-title">Safer does not mean flawless</h1>
+          <p class="hero__lede">Leading driverless systems now report lower crash and injury rates per distance than human benchmarks inside defined operating areas. They still stall, make mistakes and need a clear response when something goes wrong.</p>
+          <div class="hero__actions"><a class="button" href="#safety-facts">See the safety facts</a><a class="button button--light" href="#failure-response">See the failure response</a></div>
         </div>
       </div>
-      <p class="hero__caption">AI-generated concept image. No local service or partnership is implied. Unbranded Waymo Ojai-style vehicle shown.</p>
+      <p class="hero__caption">AI-generated concept image. An accessibility and emergency-readiness review is shown.</p>
     </section>
 
-    <aside class="status-strip" aria-label="Proposal status">
-      <div class="shell status-strip__inner">
-        <span class="status status--proposal">Independent proposal</span>
-        <p class="status-strip__text"><strong>This is an independent public-interest proposal. It is not an operating service or an announced government program.</strong></p>
-      </div>
-    </aside>
-
-    <section class="at-a-glance" aria-label="Safety at a glance">
-      <div class="shell at-a-glance__grid">
-        <div class="at-a-glance__item">
-          <span class="at-a-glance__label">The threshold has moved</span>
-          <p>For a leading rider-only service, safer per kilometre than matched human driving is now an observed result, not a future promise.</p>
-        </div>
-        <div class="at-a-glance__item">
-          <span class="at-a-glance__label">Safer does not mean perfect</span>
-          <p>Driverless vehicles can still crash, stall and make mistakes. Honest reporting, recovery and continuous improvement remain essential.</p>
-        </div>
-        <div class="at-a-glance__item">
-          <span class="at-a-glance__label">Overcompliance compounds</span>
-          <p>Every stronger implementation profile can improve safety, approvals, trust and the speed of responsible expansion.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--navy" id="current-evidence" aria-labelledby="evidence-heading">
+    <section class="section section--white" id="safety-facts" aria-labelledby="facts-title">
       <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">What the strongest public comparison shows</p>
-          <h2 id="evidence-heading">Safer per distance is now evidence, not speculation</h2>
-          <p class="section__intro">Waymo reports 220.6 million rider-only miles, about 355 million kilometres, through 31 March 2026 across five United States city operating areas. Against human-driving benchmarks adjusted for the same places and road types, its vehicles recorded 94% fewer serious-injury-or-worse crashes, 82% fewer any-injury crashes and 82% fewer airbag-deployment crashes.</p>
-        </div>
+        <header class="section__head"><h2 id="facts-title">What the strongest public comparison says</h2><p class="last-checked">Waymo data through March 2026. Research checked 26 August 2026.</p></header>
         <div class="card-grid card-grid--3">
-          <article class="surface surface--navy flow">
-            <span class="status status--verified">Rider-only evidence</span>
-            <p class="stat-card__value">220.6m</p>
-            <p class="stat-card__label">miles with no human driver through 31 March 2026</p>
-          </article>
-          <article class="surface surface--navy flow">
-            <span class="status status--verified">Matched comparison</span>
-            <p class="stat-card__value">94% fewer</p>
-            <p class="stat-card__label">serious-injury-or-worse crashes than the adjusted human benchmark</p>
-          </article>
-          <article class="surface surface--navy flow">
-            <span class="status status--verified">Matched comparison</span>
-            <p class="stat-card__value">82% fewer</p>
-            <p class="stat-card__label">any-injury crashes and airbag-deployment crashes</p>
-          </article>
+          <article class="stat-card"><p class="stat-card__value">220.6m</p><p class="stat-card__label">Rider-only miles in the published comparison.</p></article>
+          <article class="stat-card"><p class="stat-card__value">94% fewer</p><p class="stat-card__label">Serious or fatal injury crashes than the adjusted human benchmark.</p></article>
+          <article class="stat-card"><p class="stat-card__value">82% fewer</p><p class="stat-card__label">Injury crashes than the adjusted human benchmark.</p></article>
         </div>
-        <div class="callout callout--important space-top-4">
-          <strong class="callout__title">What this proves, and what it does not</strong>
-          <p>This is strong evidence that a leading deployed driverless system can outperform human driving per distance inside defined surface-street operating areas. It is not proof that every autonomous vehicle, company, road or weather condition is equally safe. Tesla's published 7× and 5× comparisons concern driver-supervised FSD and should not be presented as equivalent robotaxi evidence.</p>
-          <p><a href="https://waymo.com/safety/impact/">Read Waymo's published impact data and methodology</a> or <a href="global-trajectory.html">compare the current company landscape</a>.</p>
-        </div>
+        <p class="section__intro">That supports Waymo's system in the places and conditions measured. It does not prove that every company, vehicle, road or weather condition is equally safe.</p>
       </div>
     </section>
 
-    <section class="section section--white" aria-labelledby="permission-heading">
+    <section class="section section--sea" aria-labelledby="local-safety-title">
       <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">Separate responsibilities</p>
-          <h2 id="permission-heading">One concept, two safety cases</h2>
-            <p class="section__intro">The regulator, evidence and operating conditions are different for the road and air parts. The two workstreams can progress in parallel, but each corridor and use case needs its exact legal pathway confirmed with the responsible agencies.</p>
-        </div>
-        <div class="card-grid card-grid--2">
-          <article class="card card--sea">
-            <span class="status status--confirm">Road pathway to be confirmed</span>
-            <h3>Autonomous road shuttle</h3>
-            <p>Queensland says a permit is required to trial a highly automated vehicle on Queensland roads. Its current public guidance also requires a nominated expert driver. That is a trial pathway, not permission for an unattended public service.</p>
-            <ul class="check-list">
-              <li>Engage the Queensland Department of Transport and Main Roads early.</li>
-              <li>Prepare the trial application, safety management plan, insurance and data-sharing commitments.</li>
-              <li>Check vehicle registration, road-owner, traffic, stop, charging and site requirements against the relevant authority.</li>
-              <li>Demonstrate safe fallback, supervision, incident response and recovery for the intended roads.</li>
-            </ul>
-            <p class="card__action"><a href="https://www.business.qld.gov.au/industries/transport/trialling-automated-vehicle">Queensland automated-vehicle trial guidance</a></p>
-          </article>
-          <article class="card card--coral">
-            <span class="status status--confirm">Air pathway to be confirmed</span>
-            <h3>Delivery drone</h3>
-            <p>CASA requirements depend on the aircraft, operator, route, airspace and operating method. A commercial delivery concept is not made lawful by calling it a trial, and a remotely piloted aircraft operator’s certificate (ReOC) does not by itself approve every operation.</p>
-            <ul class="check-list">
-              <li>Check whether the proposed operation needs a certified operator and licensed remote pilots.</li>
-              <li>Identify every permission needed for the real operation, including any complex operation outside standard conditions.</li>
-              <li>Confirm launch, landing, overflight, land-owner, planning, noise and marine-park constraints separately.</li>
-              <li>Demonstrate containment, lost-link response, weather limits, incident reporting and safe recovery.</li>
-            </ul>
-            <p class="card__action"><a href="https://www.casa.gov.au/rules/regulatory-framework/casr/part-101-casr-unmanned-aircraft-and-rockets">CASA Part 101 guidance</a></p>
-          </article>
-        </div>
-        <div class="callout callout--important space-top-4">
-          <strong class="callout__title">A permit only covers the operation it approves</strong>
-          <p>Any approval could carry tight conditions. The proposed service would still need land access, environmental permissions, procurement authority, community safeguards and a responsible operating entity.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--sea" id="non-negotiables" aria-labelledby="non-negotiables-heading">
-      <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">Proposed baseline</p>
-          <h2 id="non-negotiables-heading">Eight non-negotiables</h2>
-          <p class="section__intro">These are topics people can include in each implementation profile and operating workstream. They do not claim that a provider, corridor or authority already meets them.</p>
-        </div>
-        <div class="card-grid card-grid--4">
-          <article class="card card--sea">
-            <span class="number-disc" aria-hidden="true">1</span>
-            <h3>Accessible from the start</h3>
-            <p>Co-design with people with disability, older people and carers. Provide step-free boarding, usable space, clear audio and visual information, assistance-animal access and a non-digital booking option. Test against the applicable transport and discrimination law.</p>
-          </article>
-          <article class="card card--coral">
-            <span class="number-disc" aria-hidden="true">2</span>
-            <h3>Real emergency response</h3>
-            <p>Define who answers, who can stop the system, who attends the scene and how passengers or parcels are recovered. Practise loss of power, communications, positioning and weather scenarios with emergency services and local responders.</p>
-          </article>
-          <article class="card card--eucalyptus">
-            <span class="number-disc" aria-hidden="true">3</span>
-            <h3>Privacy by design</h3>
-            <p>A privacy approach could collect the minimum personal data, separate safety telemetry from identity, set short retention periods and publish who can access what. It can offer an offline choice and avoid making facial recognition the general way to access a service.</p>
-          </article>
-          <article class="card card--sea">
-            <span class="number-disc" aria-hidden="true">4</span>
-            <h3>Cyber security by design</h3>
-            <p>Threat-model the vehicle, aircraft, fleet system, communications, updates and suppliers. Require secure defaults, strong access controls, signed updates, logging, vulnerability reporting, patch timeframes and a tested cyber incident plan.</p>
-          </article>
-          <article class="card card--coral">
-            <span class="number-disc" aria-hidden="true">5</span>
-            <h3>Noise measured locally</h3>
-            <p>Record a baseline, then measure frequency, duration and character at homes, schools, health facilities and wildlife areas. Publish operating-hour limits and a community complaint pathway alongside any federal drone-noise approval.</p>
-          </article>
-          <article class="card card--eucalyptus">
-            <span class="number-disc" aria-hidden="true">6</span>
-            <h3>Country, habitat and land respected</h3>
-            <p>Site selection depends on cultural authority, site control, planning law and marine-park zoning. Sensitive habitat and shorebird disturbance are real factors for people to weigh. A marine-park permission, where needed, is assessed on its merits and cannot be assumed.</p>
-          </article>
-          <article class="card card--sea">
-            <span class="number-disc" aria-hidden="true">7</span>
-            <h3>Complaints lead to change</h3>
-            <p>Accept phone, online and in-person reports; give a receipt; triage safety issues immediately; publish response times and an escalation route; and report de-identified themes and resulting changes.</p>
-          </article>
-          <article class="card card--coral">
-            <span class="number-disc" aria-hidden="true">8</span>
-            <h3>Independent evaluation</h3>
-            <p>An evaluation plan can name its measures and pause points, give evaluators access to relevant operational data, disclose conflicts, include community evidence and publish findings whether the result supports stopping, adapting or scaling.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--sand" aria-labelledby="response-heading">
-      <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">People need a clear door</p>
-          <h2 id="response-heading">What happens when something goes wrong?</h2>
-          <p class="section__intro">Regulator reporting and a local service complaint are not interchangeable. A plain-language operating plan can show both before the first public journey.</p>
-        </div>
-        <div class="journey-flow">
-          <div class="journey-flow__step">
-            <h3>Make safe</h3>
-            <p>Stop or contain the operation, protect people and call emergency services where needed.</p>
-          </div>
-          <div class="journey-flow__step">
-            <h3>Notify</h3>
-            <p>Where an authority sets a timeframe, notify the responsible operator, project safety lead, affected people and regulator within it.</p>
-          </div>
-          <div class="journey-flow__step">
-            <h3>Investigate</h3>
-            <p>Preserve logs, use an independent reviewer for serious events and protect personal information.</p>
-          </div>
-          <div class="journey-flow__step">
-            <h3>Learn in public</h3>
-            <p>Publish a de-identified finding, corrective action, completion evidence and the decision to stop, adapt or resume.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--white" id="open-questions" aria-labelledby="questions-heading">
-      <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">No blank cheques</p>
-          <h2 id="questions-heading">Open questions for evidence to answer</h2>
-          <p class="section__intro">These are not minor details. Until a named owner produces credible evidence, the honest status is <strong>TO BE CONFIRMED</strong>.</p>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <caption>Open safety and trust questions</caption>
-            <thead>
-              <tr>
-                <th scope="col">Open question</th>
-                <th scope="col">Evidence needed</th>
-                <th scope="col">Who can test it</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Which corridors and use cases are safe and useful enough for the regional demonstration?</th>
-                <td>Co-designed needs portfolio, corridor risk assessments, service-model comparison and reasons to pause or redesign.</td>
-                <td>Community panel, road or aviation specialists, accessibility reviewers and responsible authorities.</td>
-              </tr>
-              <tr>
-                <th scope="row">Can everyone use the service with dignity?</th>
-                <td>Paid lived-experience testing of booking, stops, boarding, cabin, parcel handover, disruptions and support.</td>
-                <td>Independent access auditor and local disability, aged-care and carer organisations.</td>
-              </tr>
-              <tr>
-                <th scope="row">What is the credible worst case?</th>
-                <td>Hazard log, safety case, emergency response plan, exercises and evidence that fallbacks work under realistic conditions.</td>
-                <td>Regulators, emergency services, operator and an independent safety assessor.</td>
-              </tr>
-              <tr>
-                <th scope="row">What data is truly necessary?</th>
-                <td>Data map, privacy impact assessment, retention schedule, access log, breach plan and deletion evidence.</td>
-                <td>Privacy specialist, cyber assessor and community representatives.</td>
-              </tr>
-              <tr>
-                <th scope="row">What noise and environmental impact is acceptable?</th>
-                <td>Baseline study, modelled and measured impacts, operating limits, seasonal constraints and permit decisions.</td>
-                <td>Independent acoustic and ecological specialists, Traditional Custodians, land managers and agencies.</td>
-              </tr>
-              <tr>
-                <th scope="row">Who carries responsibility and liability?</th>
-                <td>Named legal entities, contracts, insurance, incident roles, financial capacity and a public accountability map.</td>
-                <td>Accountable operating entity, procurement and legal reviewers, insurers and regulators.</td>
-              </tr>
-              <tr>
-                <th scope="row">Would benefits last beyond a demonstration?</th>
-                <td>Independent service, cost, equity and emissions evaluation against current transport and delivery alternatives.</td>
-                <td>Evaluator with published methods, data access and no commercial stake in the result.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--navy" aria-labelledby="evaluation-heading">
-      <div class="shell">
-        <div class="section__head">
-          <p class="eyebrow">Independent scorecard</p>
-          <h2 id="evaluation-heading">What people may want measured and published</h2>
-          <p class="section__intro">A positive press release is not evaluation. A credible evaluation can agree measures before operation starts, compare them with a relevant baseline and report limitations.</p>
-        </div>
+        <header class="section__head"><h2 id="local-safety-title">What still matters locally</h2></header>
         <div class="card-grid card-grid--3">
-          <article class="surface surface--navy">
-            <h3>Safety and reliability</h3>
-            <p>Incidents, near misses, interventions, failed or cancelled trips, communications loss, weather stops and recovery time.</p>
-          </article>
-          <article class="surface surface--navy">
-            <h3>Access and usefulness</h3>
-            <p>Who could and could not use it, completed journeys, wait time, support needs, missed connections and non-digital access.</p>
-          </article>
-          <article class="surface surface--navy">
-            <h3>Community impact</h3>
-            <p>Noise exposure, complaints, response time, privacy events, traffic interaction, habitat disturbance and local experience.</p>
-          </article>
-          <article class="surface surface--navy">
-            <h3>Cost and capacity</h3>
-            <p>Whole-of-service cost, public contribution, staffing, maintenance, infrastructure, utilisation and cost per completed task.</p>
-          </article>
-          <article class="surface surface--navy">
-            <h3>Environmental effect</h3>
-            <p>Energy source and use, embodied impacts, vehicle kilometres, avoided journeys and impacts shifted elsewhere.</p>
-          </article>
-          <article class="surface surface--navy">
-            <h3>Decision quality</h3>
-            <p>Whether agreed pause points were honoured, dissent recorded, conflicts disclosed, evidence released and corrective actions closed.</p>
-          </article>
+          <article class="surface"><h3>Access</h3><p>Booking, boarding, information and support need to work for people with disability, mobility devices, limited digital access or low confidence with the system.</p></article>
+          <article class="surface"><h3>Emergency response</h3><p>Passengers and responders need a plain way to stop, contact help and recover a failed trip.</p></article>
+          <article class="surface"><h3>Privacy and cyber security</h3><p>Collect only useful data, protect it, limit access and plan for a breach.</p></article>
+          <article class="surface"><h3>Noise and habitat</h3><p>Aircraft routes and hours need to fit homes, wildlife, weather and Country along the route.</p></article>
+          <article class="surface"><h3>Public incident reporting</h3><p>Problems, interruptions and fixes need to be visible enough for people to judge the service honestly.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section section--white" aria-labelledby="sources-heading">
-      <div class="shell sidebar-layout">
-        <div>
-          <div class="section__head">
-            <p class="eyebrow">Official reference points</p>
-            <h2 id="sources-heading">Sources for the safety framework</h2>
-            <p class="section__intro">These dated links establish regulatory and policy reference points. An official explainer can lag a newer law, order, register or application form. The current controlling instrument and written decision take priority.</p>
-          </div>
-          <ol class="source-list">
-            <li>
-              <a class="source__title" href="https://waymo.com/safety/impact/">Waymo: Safety impact data</a>
-              <span class="source__meta">Rider-only mileage, matched human benchmarks, crash outcomes, confidence intervals and methodology through 31 March 2026.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.tesla.com/fsd/safety">Tesla: FSD safety data</a>
-              <span class="source__meta">A supervised driver-assistance comparison, included to make clear that its claims are not the same as rider-only robotaxi evidence.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.qld.gov.au/transport/projects/cavi/automated-vehicles">Queensland Government: Automated vehicles in Queensland</a>
-              <span class="source__meta">Current public guidance on permits and drivers for highly automated vehicle trials.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.ntc.gov.au/codes-and-guidelines/automated-vehicle-trial-guidelines">National Transport Commission: Automated vehicle trial guidelines</a>
-              <span class="source__meta">National guidance covering trial applications, safety management, insurance, data and evaluation.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.casa.gov.au/rules/regulatory-framework/casr/part-101-casr-unmanned-aircraft-and-rockets">Civil Aviation Safety Authority: Part 101 unmanned aircraft and rockets</a>
-              <span class="source__meta">Rules and guidance for remotely piloted aircraft operations and approvals.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.infrastructure.gov.au/infrastructure-transport-vehicles/aviation/aviation-safety/aircraft-noise">Australian Department of Infrastructure: Aircraft noise</a>
-              <span class="source__meta">Official overview of the drone-noise framework, approvals and complaint routes.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.legislation.gov.au/F2005B01059/latest/text">Federal Register of Legislation: Disability Standards for Accessible Public Transport 2002</a>
-              <span class="source__meta">Current legislative instrument; applicability to a specific service needs confirmation.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-guidelines">Office of the Australian Information Commissioner: Australian Privacy Principles guidelines</a>
-              <span class="source__meta">Guidance on transparent data governance, collection, use, security, access and correction.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.cyber.gov.au/business-government/secure-design/secure-by-design">Australian Signals Directorate: Secure by Design</a>
-              <span class="source__meta">Whole-of-life security guidance for technology manufacturers and buyers.</span>
-            </li>
-            <li>
-              <a class="source__title" href="https://www.qld.gov.au/environment/coasts-waterways/marine-parks/permits">Queensland Government: Marine park permits and activities</a>
-              <span class="source__meta">Moreton Bay Marine Park zoning and permission starting point.</span>
-            </li>
-          </ol>
-        </div>
-        <aside class="sidebar-layout__aside surface flow" aria-label="Source note">
-          <span class="status status--verified">Official sources</span>
-          <h3>Checked, not presumed complete</h3>
-          <p>Research cut-off: <time datetime="2026-08-26">26 August 2026</time>. Requirements can change and depend on the exact vehicle, aircraft, site and operating model.</p>
-          <p>A future applicant can obtain written advice from each responsible authority rather than treating this page as legal or regulatory advice.</p>
-        </aside>
-      </div>
-
-      <div class="shell">
-        <nav class="page-nav" aria-label="Previous and next pages">
-          <a class="page-nav__link" href="everyday-journeys.html">
-            <span class="page-nav__direction">← Previous</span>
-            <span class="page-nav__title">Everyday journeys</span>
-          </a>
-          <a class="page-nav__link page-nav__link--next" href="pilot-plan.html">
-            <span class="page-nav__direction">Next →</span>
-            <span class="page-nav__title">Action plan</span>
-          </a>
-        </nav>
+    <section class="section section--navy" id="failure-response" aria-labelledby="response-title">
+      <div class="shell content-grid content-grid--2 content-grid--wide">
+        <div class="flow"><h2 id="response-title">When something goes wrong</h2><ol><li>Move the vehicle or aircraft into its safest available state.</li><li>Tell the passenger, receiver and support team what is happening.</li><li>Send human help or another service when needed.</li><li>Record the event, fix the cause and publish what happened, what changed and what remains unknown.</li></ol></div>
+        <div class="flow"><h3>Road vehicles and drones follow separate processes</h3><p>Queensland road permissions and Australian aviation permissions are separate. The exact route, vehicle, aircraft and way it operates determine what applies.</p><div class="cluster"><a class="button" href="pilot-plan.html">See the action plan</a><a class="button button--outline" href="site-map.html#sources-safety">Open safety sources</a></div></div>
       </div>
     </section>
+
+    <nav class="shell page-nav" aria-label="Page navigation">
+      <a class="page-nav__link" href="everyday-journeys.html"><span class="page-nav__direction">Previous</span><span class="page-nav__title">Journeys</span></a>
+      <a class="page-nav__link page-nav__link--next" href="pilot-plan.html"><span class="page-nav__direction">Next</span><span class="page-nav__title">Action plan</span></a>
+    </nav>
   </main>
 
   <a class="back-to-top" href="#top" data-back-to-top aria-label="Back to top">Top ↑</a>
 
   <footer class="site-footer">
     <div class="shell">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <p class="footer-title">Moreton Bay Autonomous Mobility</p>
-          <p>A people-led plan to upgrade or replace suitable local passenger and delivery services with a region-wide 24/7/365 autonomous network, keeping ownership, work and profit local.</p>
-          <p class="footer-status">This is an independent public-interest proposal. It is not an operating service or an announced government program.</p>
-        </div>
-        <nav aria-label="Explore">
-          <p class="footer-title">Explore</p>
-          <ul class="footer-nav">
-            <li><a href="why-moreton-bay.html">Why here</a></li>
-            <li><a href="global-trajectory.html">The global shift</a></li>
-            <li><a href="how-it-works.html">How it works</a></li>
-            <li><a href="everyday-journeys.html">Everyday journeys</a></li>
-            <li><a href="safety-and-trust.html">Safety &amp; trust</a></li>
-          </ul>
-        </nav>
-        <nav aria-label="Act">
-          <p class="footer-title">Act</p>
-          <ul class="footer-nav">
-            <li><a href="pilot-plan.html">Open action plan</a></li>
-            <li><a href="take-part.html">Take part</a></li>
-            <li><a href="site-map.html">Site map</a></li>
-            <li><a href="https://github.com/auraofintelligence/moreton-bay-autonomous-mobility/blob/main/LICENCE.md">Licence and reuse</a></li>
-            <li><a href="https://github.com/auraofintelligence/moreton-bay-autonomous-mobility">View the public GitHub repository</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span data-current-year>2026</span> Moreton Bay Autonomous Mobility</span>
-        <span>Independent proposal · Australian English · Source links checked 26 August 2026</span>
-      </div>
+      <div class="footer-bottom"><span>Moreton Bay Autonomous Mobility. Independent public proposal.</span><span><a href="site-map.html#sources">Sources</a> / <a href="https://github.com/auraofintelligence/moreton-bay-autonomous-mobility">Repository</a> / <a href="https://github.com/auraofintelligence/moreton-bay-autonomous-mobility/blob/main/LICENCE.md">Licence</a></span></div>
     </div>
   </footer>
 </body>

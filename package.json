@@ -2,7 +2,7 @@
   "name": "moreton-bay-autonomous-mobility",
   "version": "1.0.0",
   "private": true,
-  "description": "A people-led action guide for building a region-wide 24/7/365 autonomous passenger and delivery network in Moreton Bay.",
+  "description": "A short public guide to useful autonomous passenger and delivery services across Moreton Bay.",
   "scripts": {
     "check": "node tools/check-site.mjs"
   }
