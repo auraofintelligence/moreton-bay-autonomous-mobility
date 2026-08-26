@@ -17,7 +17,7 @@ The vehicle and aircraft forms were checked against current official material on
 - [Zoox production-intent vehicle update](https://zoox.com/journal/the-updated-zoox-robotaxi)
 - [Wing delivery-aircraft technology](https://wing.com/technology)
 
-Waymo's current rider fleet includes the Jaguar I-PACE and the Ojai, the Zeekr RT-derived vehicle previously described publicly as that programme. Tesla's current paid Robotaxi rides use Model Y; Cybercab is shown as the purpose-built vehicle intended for later service. The imagery keeps that distinction: it uses Cybercab as a recognisable trajectory and production form, not as a claim that it is already the current Tesla ride vehicle.
+Waymo's current passenger fleet includes the Jaguar I-PACE and the Ojai, the Zeekr RT-derived vehicle previously described publicly as that programme. Tesla's current paid Robotaxi rides use Model Y; Cybercab is shown as the purpose-built vehicle intended for later service. The imagery keeps that distinction: it uses Cybercab as a recognisable trajectory and production form, not as a claim that it is already the current Tesla ride vehicle.
 
 ## Shared direction
 

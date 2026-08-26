@@ -4,7 +4,7 @@
 
 [Open the site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) · [View the public repository](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility)
 
-> This is an independent public-interest proposal. It is not an operating service or an announced government program.
+> This is an independent public-interest proposal. It is not an operating service or an announced government programme.
 
 ## What this project is
 
@@ -20,7 +20,7 @@ The main argument is not that any autonomous vehicle is flawless. It is the dire
 
 1. Paid driverless services now operate across multiple cities and countries.
 2. Leading deployed systems have accumulated commercial scale and strong per-distance safety evidence inside defined operating areas.
-3. Regulators are approving fleet-scale operating envelopes, including Nevada’s August 2026 first-year ceilings of 5,000 Tesla vehicles and 1,000 Waymo vehicles.
+3. Regulators are approving fleet-scale operating limits, including Nevada's August 2026 first-year maximums of 5,000 Tesla vehicles and 1,000 Waymo vehicles.
 4. Vehicle capability, regulation, infrastructure and public familiarity are improving together.
 5. The practical decision is when Moreton Bay makes the bet and which local assets make that bet compound.
 
@@ -36,7 +36,7 @@ The project therefore concentrates on assets the region can keep improving:
 
 ## What it does not claim
 
-The site does not claim a confirmed route, operator, partner, vehicle supplier, budget, permit, land right, cultural authority or government program.
+The site does not claim a confirmed route, operator, partner, vehicle supplier, budget, permit, land right, cultural authority or government programme.
 
 Named agencies and officeholders are shown because they handle particular legal decisions, not because they own or endorse the vision.
 
@@ -59,10 +59,10 @@ Company statements are labelled as company-reported evidence. Safety comparisons
 | [Project overview](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/) | Asks the timing question and gives three useful starting points. |
 | [Why Moreton Bay?](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/why-moreton-bay.html) | Shows the ferry-access problem, roughly 300 to 400 parked vehicles at Dunwich and the wider lesson. |
 | [Global trajectory](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/global-trajectory.html) | Compares current Waymo, Tesla, Chinese and other company status, safety evidence and fleet-scale approvals. |
-| [How the network works](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/how-it-works.html) | Explains passenger rides, lightweight deliveries and their shared support. |
-| [Everyday journeys](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/everyday-journeys.html) | Shows four practical journey cases. |
-| [Safety and trust](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html) | Shows current safety evidence, its limits, local concerns and the failure response. |
-| [Action plan](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/pilot-plan.html) | Gives four phases, the first 90 days and the stop, adapt or scale decision. |
+| [How the network works](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/how-it-works.html) | Explains passenger rides, mainland-to-island supply flights and their shared support. |
+| [Everyday journeys](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/everyday-journeys.html) | Shows four useful island journeys. |
+| [Safety and trust](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/safety-and-trust.html) | Shows the strongest current public safety comparison and its limits. |
+| [Action plan](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/pilot-plan.html) | Gives four phases and the first 90 days. |
 | [Take part](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/take-part.html) | Shows roles, responsibilities and ways to help or correct the work. |
 | [Site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) | Lists every short page and holds the complete dated source library. |
 
@@ -72,13 +72,11 @@ The repository also provides a machine-readable [`sitemap.xml`](sitemap.xml) for
 
 ### Autonomous passenger services
 
-The road workstream covers accessible vehicles, booking, stops and hubs, passenger support, remote assistance, maintenance, incident response and safe recovery. Queensland’s current public-road trial pathway is not presented as permission for a future rider-only commercial network; each later operating model requires its own lawful pathway.
+The road workstream covers accessible vehicles, booking, stops and hubs, passenger support, remote assistance, maintenance, incident response and safe recovery. Queensland's current public-road trial pathway is not presented as permission for a future commercial service without a human driver; each later operating model requires its own lawful pathway.
 
-### Lightweight delivery by air
+### Mainland-to-island delivery by air
 
-The drone workstream covers qualified operators and pilots, aircraft, beyond-visual-line-of-sight approval, operational volumes, emergency plans, ground sites, noise, environment, land access and marine-park requirements where relevant.
-
-The two workstreams can advance in parallel, but a road approval does not authorise a drone operation and a CASA approval does not grant local land, noise, planning or marine-park permission.
+The air workstream covers food, medicine and urgent repair supplies moving from a mainland depot to island collection points. It also covers qualified operators and pilots, aircraft, beyond-visual-line-of-sight approval, operational volumes, emergency plans, ground sites, noise, environment, land access and marine-park requirements where relevant.
 
 ## Implementation approach
 
@@ -121,7 +119,7 @@ These links and public pages were checked on 26 August 2026. Their status can ch
 ├── global-trajectory.html     Current international evidence
 ├── how-it-works.html          Network design
 ├── everyday-journeys.html     Four practical journey cases
-├── safety-and-trust.html      Evidence and safeguards
+├── safety-and-trust.html      Current safety evidence
 ├── pilot-plan.html            Action plan; filename retained for stable links
 ├── take-part.html             Roles, responsibilities and ways to help
 ├── site-map.html              Site map and dated source library

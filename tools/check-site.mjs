@@ -38,6 +38,17 @@ const expectedSourceLinks = new Map([
   ["pilot-plan.html", "site-map.html#sources-action"],
   ["take-part.html", "site-map.html#sources-take-part"],
 ]);
+const expectedPageNavigation = new Map([
+  ["index.html", ["why-moreton-bay.html"]],
+  ["why-moreton-bay.html", ["index.html", "global-trajectory.html"]],
+  ["global-trajectory.html", ["why-moreton-bay.html", "how-it-works.html"]],
+  ["how-it-works.html", ["global-trajectory.html", "everyday-journeys.html"]],
+  ["everyday-journeys.html", ["how-it-works.html", "safety-and-trust.html"]],
+  ["safety-and-trust.html", ["everyday-journeys.html", "pilot-plan.html"]],
+  ["pilot-plan.html", ["safety-and-trust.html", "take-part.html"]],
+  ["take-part.html", ["pilot-plan.html", "site-map.html"]],
+  ["site-map.html", ["take-part.html", "index.html"]],
+]);
 const compactDisclaimer = "Independent public proposal.";
 const issues = [];
 const titles = new Map();
@@ -80,6 +91,19 @@ function visibleMainWordCount(html) {
     .replace(/<[^>]+>/g, " ")
     .replace(/&(?:#\d+|#x[\da-f]+|[a-z][a-z\d]+);/gi, " ");
   return [...visibleText.matchAll(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu)].length;
+}
+
+function humanFacingCopy(html) {
+  const visibleText = html
+    .replace(/<!--[\s\S]*?-->/g, " ")
+    .replace(/<(script|style|template)\b[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ");
+  const readableAttributes = [...html.matchAll(/\b(?:alt|content|title|data-label-open|data-label-close)\s*=\s*(["'])(.*?)\1/gi)]
+    .map((match) => match[2])
+    .join(" ");
+  return `${visibleText} ${readableAttributes}`
+    .replace(/https?:\/\/\S+/gi, " ")
+    .replace(/\bOne Mile\b/gi, " ");
 }
 
 function localTarget(page, href) {
@@ -155,6 +179,23 @@ for (const page of pages) {
   if (/[\u2010\u2011\u2012\u2013\u2014\u2015]/u.test(html)) {
     addIssue(page, "contains a Unicode dash; use an ASCII hyphen or normal punctuation");
   }
+  const publicCopy = humanFacingCopy(html);
+  if (/\b(?:miles?|mph|feet|foot|inches?|yards?|gallons?|ounces?|pounds?|fahrenheit|lbs?|oz|ft|kilometers?|meters?|liters?)\b/i.test(publicCopy)) {
+    addIssue(page, "contains a non-Australian or non-metric unit");
+  }
+  if (/\b\d+(?:\.\d+)?\s*(?:m|bn|b|k)\+?\b/i.test(publicCopy)) {
+    addIssue(page, "contains an ambiguous shortened number; write million, billion or thousand in full");
+  }
+  const dateCopy = publicCopy.replace(/\b24\/7\/365\b/g, " ");
+  if (/\b(?:Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.?\s+\d{1,2},\s+\d{4}\b|\b\d{1,2}\/\d{1,2}\/\d{2,4}\b/i.test(dateCopy)) {
+    addIssue(page, "contains an ambiguous or American-style date");
+  }
+  if (/\b(?:color|colors|colored|center|centers|centered|behavior|behaviors|labor|neighbor|neighbors|neighborhood|neighborhoods|organize|organized|organizing|recognize|recognized|analyze|analyzed|authorize|authorized|authorization|program|programs|catalog|catalogs|maneuver|maneuvers|curb|curbs|tire|tires|defense|airplane|sidewalk|canceled|canceling|traveled|traveling|traveler|travelers|fulfill|fulfillment|gray)\b/i.test(publicCopy)) {
+    addIssue(page, "contains American spelling in public copy or metadata");
+  }
+  if (/\bUS\b/.test(publicCopy)) {
+    addIssue(page, "uses the abbreviation US; write United States in first-contact copy");
+  }
   if (/\b(?:train|rail)\b/i.test(html)) {
     addIssue(page, "contains train or rail wording; the Bay Islands use ferry connections");
   }
@@ -176,6 +217,13 @@ for (const page of pages) {
   const expectedSourceLink = expectedSourceLinks.get(page);
   if (expectedSourceLink && !hasLink(html, expectedSourceLink)) {
     addIssue(page, `missing page-specific source link ${expectedSourceLink}`);
+  }
+
+  const pageNav = html.match(/<nav\b[^>]*\bclass=["'][^"']*\bpage-nav\b[^"']*["'][^>]*>[\s\S]*?<\/nav>/i)?.[0] ?? "";
+  for (const expectedLink of expectedPageNavigation.get(page) ?? []) {
+    if (!hasLink(pageNav, expectedLink)) {
+      addIssue(page, `page navigation is missing ${expectedLink}`);
+    }
   }
 
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
@@ -212,6 +260,10 @@ for (const page of pages) {
   for (const anchorTag of html.matchAll(/<a\b[^>]*>/gi)) {
     const tag = anchorTag[0];
     const href = getAttribute(tag, "href");
+    const className = getAttribute(tag, "class") ?? "";
+    if (/\bbutton\b/i.test(className) && href?.startsWith("#")) {
+      addIssue(page, `button must lead somewhere useful instead of scrolling within the page: ${href}`);
+    }
     if (getAttribute(tag, "target") === "_blank") {
       const rel = getAttribute(tag, "rel") ?? "";
       if (!/\bnoopener\b/i.test(rel) || !/\bnoreferrer\b/i.test(rel)) {
