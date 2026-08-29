@@ -1,5 +1,35 @@
 # Moreton Bay Autonomous Mobility
 
+<!-- github-organisation:start -->
+
+## Project links and history
+
+- First substantive build: 26 August 2026.
+- GitHub repository: [moreton-bay-autonomous-mobility](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility).
+- Public site: [visit the public site](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/).
+
+## Related public projects
+
+Each link below reflects an evidenced family, lineage or direct connection. This project has 10 relevant public connections.
+
+### Direct and other supported connections
+
+- [dunwich-gumpi-ferry-terminal-open-data-lab](https://github.com/auraofintelligence/dunwich-gumpi-ferry-terminal-open-data-lab) - [public page](https://auraofintelligence.github.io/dunwich-gumpi-ferry-terminal-open-data-lab/) - explicit cross-reference.
+- [grain-by-grain](https://github.com/auraofintelligence/grain-by-grain) - [public page](https://auraofintelligence.github.io/grain-by-grain/) - explicit cross-reference.
+- [right-place-right-time](https://github.com/auraofintelligence/right-place-right-time) - [public page](https://auraofintelligence.github.io/right-place-right-time/) - explicit cross-reference.
+- [strange-but-true](https://github.com/auraofintelligence/strange-but-true) - [public page](https://auraofintelligence.github.io/strange-but-true/) - explicit cross-reference.
+
+### Funding, procurement and project-readiness workbenches
+
+- [community-club-builder-sandy-sports](https://github.com/auraofintelligence/community-club-builder-sandy-sports) - [public page](https://auraofintelligence.github.io/community-club-builder-sandy-sports/) - shared tooling suite.
+- [legal-memory-workbench](https://github.com/auraofintelligence/legal-memory-workbench) - [public page](https://auraofintelligence.github.io/legal-memory-workbench/) - explicit cross-reference, shared tooling suite.
+- [ready-set-co-op-trust-hub](https://github.com/auraofintelligence/ready-set-co-op-trust-hub) - [public page](https://auraofintelligence.github.io/ready-set-co-op-trust-hub/) - explicit cross-reference, shared tooling suite.
+- [stradbroke-grants-lab](https://github.com/auraofintelligence/stradbroke-grants-lab) - [public page](https://auraofintelligence.github.io/stradbroke-grants-lab/) - explicit cross-reference, shared tooling suite.
+- [straddie-tenders-lab](https://github.com/auraofintelligence/straddie-tenders-lab) - [public page](https://auraofintelligence.github.io/straddie-tenders-lab/) - explicit cross-reference, shared tooling suite.
+- [windemere-skate-bowl-tender-workspace](https://github.com/auraofintelligence/windemere-skate-bowl-tender-workspace) - [public page](https://auraofintelligence.github.io/windemere-skate-bowl-tender-workspace/) - shared tooling suite.
+
+<!-- github-organisation:end -->
+
 **Public website:** [auraofintelligence.github.io/moreton-bay-autonomous-mobility](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/)
 
 [Open the site map and sources](https://auraofintelligence.github.io/moreton-bay-autonomous-mobility/site-map.html) · [View the public repository](https://github.com/auraofintelligence/moreton-bay-autonomous-mobility)
